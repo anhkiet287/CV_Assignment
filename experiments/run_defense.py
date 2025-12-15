@@ -90,18 +90,18 @@ if __name__ == "__main__":
                 for xb, yb in test_loader:
                     xb, yb = xb.to(device), yb.to(device)
                     x0 = xb.detach()
-                    x_adv = (x0 + torch.empty_like(x0).uniform_(-eps_float, eps_float)).clamp(0,1).detach()
+                    x_adv = (x0 + torch.empty_like(x0).uniform_(-eps_float, eps_float)).clamp(0, 1).detach()
                     for _ in range(iters):
-                        x_adv.requires_grad_(True)
+                        x_adv = x_adv.detach().requires_grad_(True)
                         logits = model(x_adv)
                         loss = torch.nn.functional.cross_entropy(logits, yb)
                         model.zero_grad(set_to_none=True)
                         loss.backward()
                         with torch.no_grad():
                             grad = x_adv.grad.detach() if x_adv.grad is not None else torch.zeros_like(x_adv)
-                            x_adv += step * grad.sign()
+                            x_adv = x_adv + step * grad.sign()
                             eta = (x_adv - x0).clamp(-eps_float, eps_float)
-                        x_adv[:] = (x0 + eta).clamp(0,1)
+                            x_adv = (x0 + eta).clamp(0, 1)
                     x_adv = x_adv.detach()
                     adv_batches.append(x_adv.cpu())
                     lbl_batches.append(yb.cpu())

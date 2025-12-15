@@ -56,7 +56,18 @@ std_full:
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense opening --k 3 --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense median  --k 3 --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense sobel --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
-	python experiments/run_defense.py --attack pgd  --eps255 4 8 12 --defense none  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4 --defense none  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8  --defense none  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12  --defense none  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4 --defense opening  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8  --defense opening  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12  --defense opening  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4 --defense median  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8  --defense median  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12  --defense median  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4 --defense sobel  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8  --defense sobel  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12  --defense sobel  --ckpt checkpoints/best94.pt --model_name ResNet18_STD --tag std --results_csv experiments/results_main.csv
 	python experiments/aggregate.py --csv experiments/results_main.csv --out tables/summary_std.md
 	python experiments/make_figures.py --csv experiments/results_main.csv --outdir figures_std
 
@@ -66,7 +77,19 @@ at_full:
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense opening --k 3 --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense median  --k 3 --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
 	python experiments/run_defense.py --attack fgsm --eps255 4 8 12 --defense sobel --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
-	python experiments/run_defense.py --attack pgd  --eps255 4 8 12 --defense none  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4  --defense none  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8 --defense none  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12 --defense none  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4  --defense opening  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8 --defense opening  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12 --defense opening  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4  --defense median  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8 --defense median  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12 --defense median  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 4  --defense sobel  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 8 --defense sobel  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	python experiments/run_defense.py --attack pgd  --eps255 12 --defense sobel  --ckpt checkpoints/adv_pgd_best.pt --model_name ResNet18_PGDAT --tag at --results_csv experiments/results_at.csv
+	
 	python experiments/aggregate.py --csv experiments/results_at.csv --out tables/summary_at.md
 	python experiments/make_figures.py --csv experiments/results_at.csv --outdir figures_at
 
