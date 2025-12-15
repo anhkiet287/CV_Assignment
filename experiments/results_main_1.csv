@@ -1,0 +1,31 @@
+model,attack,eps,defense,params,acc,acc_adv,clean_acc,clean_def_acc,clean_penalty,time_ms_per_img,commit,notes,split,device,tag
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.23320284580113368,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.031373,none,{},0.1773,0.1773,0.9346,0.9346,0.0,0.2390473625040613,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.047059,none,{},0.151,0.151,0.9346,0.9346,0.0,0.24213112910510973,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.23533990839496255,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.015686,opening,"{""k"": 3, ""sigma"": null}",0.4297,0.2371,0.9346,0.8442,-0.09040000000000004,0.2505213374970481,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.031373,none,{},0.1773,0.1773,0.9346,0.9346,0.0,0.23751853751018645,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.031373,opening,"{""k"": 3, ""sigma"": null}",0.2802,0.1773,0.9346,0.8442,-0.09040000000000004,0.2399051291984506,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.047059,none,{},0.151,0.151,0.9346,0.9346,0.0,0.22956433340441434,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.047059,opening,"{""k"": 3, ""sigma"": null}",0.2456,0.151,0.9346,0.8442,-0.09040000000000004,0.24061122500570492,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.2277416207944043,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.015686,median,"{""k"": 3, ""sigma"": null}",0.5983,0.2371,0.9346,0.8061,-0.12849999999999995,0.23870208750013264,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.031373,none,{},0.1773,0.1773,0.9346,0.9346,0.0,0.2295212749973871,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.031373,median,"{""k"": 3, ""sigma"": null}",0.3936,0.1773,0.9346,0.8061,-0.12849999999999995,0.2345143500017002,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.047059,none,{},0.151,0.151,0.9346,0.9346,0.0,0.23010867090197282,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.047059,median,"{""k"": 3, ""sigma"": null}",0.2983,0.151,0.9346,0.8061,-0.12849999999999995,0.2343074999982491,65c18f93a70a03e9431fa890ddd9339ff04359ca,,test,mps,std
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.22801789159420877,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.031373,none,{},0.1773,0.1773,0.9346,0.9346,0.0,0.22840585409430786,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+ResNet18_STD,fgsm,0.047059,none,{},0.151,0.151,0.9346,0.9346,0.0,0.22866281659808008,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std
+resnet18,pgd20,0.015686,none,"{""k"": null, ""sigma"": null}",0.0019,0.0019,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.031373,none,"{""k"": null, ""sigma"": null}",0.0,0.0,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.047059,none,"{""k"": null, ""sigma"": null}",0.0,0.0,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.015686,opening,"{""k"": 3, ""sigma"": null}",0.025,0.025,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.031373,opening,"{""k"": 3, ""sigma"": null}",0.0026,0.0026,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.047059,opening,"{""k"": 3, ""sigma"": null}",0.0006,0.0006,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.015686,median,"{""k"": 3, ""sigma"": null}",0.3566,0.3566,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.031373,median,"{""k"": 3, ""sigma"": null}",0.191,0.191,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.047059,median,"{""k"": 3, ""sigma"": null}",0.1043,0.1043,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.015686,sobel,"{""k"": null, ""sigma"": null}",0.5931,0.5931,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.031373,sobel,"{""k"": null, ""sigma"": null}",0.5809,0.5809,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std
+resnet18,pgd20,0.047059,sobel,"{""k"": null, ""sigma"": null}",0.5537,0.5537,,,,,65c18f93a70a03e9431fa890ddd9339ff04359ca,pgd_eval,test,mps,std

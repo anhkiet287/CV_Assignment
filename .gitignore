@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+data/adv/
+data/cifar-10-python.tar.gz
+checkpoints/
+figures*/
+figures/
+tables/env.md
+tables/train_logs.json
+.DS_Store

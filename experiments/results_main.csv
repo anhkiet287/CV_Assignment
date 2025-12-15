@@ -1,0 +1,5 @@
+model,attack,eps,defense,params,acc,acc_adv,clean_acc,clean_def_acc,clean_penalty,time_ms_per_img,commit,notes,split,device,tag,drop,recovery,run_id
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.23022780001629145,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std,0.6975,0.0,1765792671-65c18f9
+ResNet18_STD,fgsm,0.031373,none,{},0.1773,0.1773,0.9346,0.9346,0.0,0.23102821249049157,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std,0.7573,0.0,1765792671-65c18f9
+ResNet18_STD,fgsm,0.047059,none,{},0.151,0.151,0.9346,0.9346,0.0,0.22994166249409317,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std,0.7836,0.0,1765792671-65c18f9
+ResNet18_STD,fgsm,0.015686,none,{},0.2371,0.2371,0.9346,0.9346,0.0,0.2281226542079821,65c18f93a70a03e9431fa890ddd9339ff04359ca,baseline-no-defense,test,mps,std,0.6975,0.0,1765792695-65c18f9
