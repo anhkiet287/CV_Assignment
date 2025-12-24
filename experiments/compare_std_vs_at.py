@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--std", type=str, default="experiments/results_main.csv")
+ap.add_argument("--std", type=str, default="experiments/results_std.csv")
 ap.add_argument("--at", type=str, default="experiments/results_at.csv")
 ap.add_argument("--out", type=str, default="tables/compare_std_vs_at.md")
 args = ap.parse_args()
@@ -12,16 +12,21 @@ std = pd.read_csv(args.std) if Path(args.std).exists() else None
 at = pd.read_csv(args.at) if Path(args.at).exists() else None
 if std is None or at is None:
     print("Missing input CSVs"); raise SystemExit(0)
+for df in (std, at):
+    if "time_ms_per_img" in df.columns:
+        df["time_ms_per_img"] = pd.to_numeric(df["time_ms_per_img"], errors="coerce")
 
 def summarize(df, label):
-    best_acc = (df.sort_values(["eps","acc","time_ms_per_img"], ascending=[True,False,True])
+    metric_col = "acc_def" if "acc_def" in df.columns else "acc"
+    acc_clean_col = "acc_clean" if "acc_clean" in df.columns else "clean_acc"
+    best_acc = (df.sort_values(["eps", metric_col, "time_ms_per_img"], ascending=[True, False, True])
                   .groupby("eps").head(1))
     if "recovery" not in df.columns:
         df = df.copy()
-        df["drop"] = df["clean_acc"] - df["acc_adv"]
-        df["recovery"] = (df["acc"] - df["acc_adv"]) / df["drop"].clip(lower=1e-6)
+        df["drop"] = df[acc_clean_col] - df["acc_adv"]
+        df["recovery"] = (df[metric_col] - df["acc_adv"]) / df["drop"].clip(lower=1e-6)
     trade = (df[df["clean_penalty"] >= -0.06]
-             .sort_values(["eps","recovery","time_ms_per_img"], ascending=[True,False,True])
+             .sort_values(["eps", "recovery", "time_ms_per_img"], ascending=[True, False, True])
              .groupby("eps").head(1))
     best_acc.insert(0, "model_group", label)
     trade.insert(0, "model_group", label)

@@ -5,7 +5,7 @@ import numpy as np
 import argparse
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--csv", type=str, default="experiments/results_main.csv")
+ap.add_argument("--csv", type=str, default="experiments/results_std.csv")
 ap.add_argument("--out", type=str, default="tables/summary.md")
 ap.add_argument("--penalty_limit", type=float, default=-0.06)
 ap.add_argument("--max_rows", type=int, default=None)
@@ -17,19 +17,22 @@ if not SRC.exists():
     print(f"No {SRC}"); raise SystemExit(0)
 
 df = pd.read_csv(SRC)
+if "time_ms_per_img" in df.columns:
+    df["time_ms_per_img"] = pd.to_numeric(df["time_ms_per_img"], errors="coerce")
 if "drop" in df.columns:
     df = df[df["drop"] > 1e-6]
-dedup_keys = [c for c in ["model","attack","eps","defense","params","tag","run_id"] if c in df.columns]
+dedup_keys = [c for c in ["model_name","attack","eps","eps255","defense","params","tag","run_id"] if c in df.columns]
 if dedup_keys:
     df = df.drop_duplicates(subset=dedup_keys, keep="last")
-df["drop"] = df["clean_acc"] - df["acc_adv"]
-df["recovery"] = np.where(df["drop"] > 1e-6, (df["acc"] - df["acc_adv"]) / df["drop"], 0.0)
-
-best_acc = (df.sort_values(["eps","acc","time_ms_per_img"], ascending=[True,False,True])
+acc_clean_col = "acc_clean" if "acc_clean" in df.columns else "clean_acc"
+df["drop"] = df[acc_clean_col] - df["acc_adv"]
+metric_col = "acc_def" if "acc_def" in df.columns else "acc"
+df["recovery"] = np.where(df["drop"] > 1e-6, (df[metric_col] - df["acc_adv"]) / df["drop"], 0.0)
+best_acc = (df.sort_values(["eps", metric_col, "time_ms_per_img"], ascending=[True, False, True])
               .groupby("eps").head(1))
 
 trade = (df[df["clean_penalty"] >= args.penalty_limit]
-         .sort_values(["eps","recovery","time_ms_per_img"], ascending=[True,False,True])
+         .sort_values(["eps", "recovery", "time_ms_per_img"], ascending=[True, False, True])
          .groupby("eps").head(1))
 
 def df_to_md(df):
